@@ -1,0 +1,30 @@
+body {
+	text-align: center;
+	color: #0D2C40;
+	font-family: "Raleway", sans-serif;
+	letter-spacing: 1px;
+}
+
+h1 {
+	font-weight: 400;
+	font-size: 45px;
+}
+
+h2 {
+	font-weight: 600;
+	font-size: 20px;
+}
+
+p {
+	font-family: "Droid Serif", serif;
+	line-height: 26px;
+	font-size: 10px;
+}
+
+.link {
+	text-decoration: none;
+	color: #F15B31;
+	font-weight: 600;
+	font-size: 18px;
+	letter-spacing: normal;
+}
