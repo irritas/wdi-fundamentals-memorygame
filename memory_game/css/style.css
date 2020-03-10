@@ -3,6 +3,7 @@ body {
 	color: #0D2C40;
 	font-family: "Raleway", sans-serif;
 	letter-spacing: 1px;
+	font-size: 18px;
 }
 
 h1 {
@@ -18,13 +19,25 @@ h2 {
 p {
 	font-family: "Droid Serif", serif;
 	line-height: 26px;
-	font-size: 10px;
+	letter-spacing: normal;
 }
 
 .link {
 	text-decoration: none;
 	color: #F15B31;
 	font-weight: 600;
-	font-size: 18px;
-	letter-spacing: normal;
+}
+
+header ul {
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+ul {
+  list-style: none;
+}
+
+.social img {
+  width: 30px;
 }
