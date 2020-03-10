@@ -1,3 +1,4 @@
+//Declare Global Variables
 let cards = [
 {
 	rank: "queen",
@@ -21,19 +22,53 @@ let cards = [
 }
 ];
 let cardsInPlay = [];
+let score = 0;
 
+//Logic Functions
 function checkForMatch() {
-	if (cardsInPlay[0] === cardsInPlay[1]) alert("You found a match!");
-		else alert("Sorry, try again.");
+	if (cardsInPlay[0] === cardsInPlay[1]) {
+		alert("You found a match!");
+		score++;
+		document.getElementById('score').textContent = score;
+	}
+		else {
+			alert("Sorry, try again.");
+		}
 }
 
-function flipCard(cardId) {
-	console.log("User flipped " + cards[cardId].rank);
-	console.log(cards[cardId].suit);
-	console.log(cards[cardId].cardImage);
+function flipCard() {
+	let cardId = this.getAttribute('data-id');
 	cardsInPlay.push(cards[cardId].rank);
-	if (cardsInPlay.length === 2) checkForMatch();
+	this.setAttribute('src', cards[cardId].cardImage);
+	if (cardsInPlay.length === 2) {
+		setTimeout(checkForMatch, 100);
+	}
 }
 
-flipCard(0);
-flipCard(2);
+//Main Display
+function createBoard() {
+	for (let i = 0; i < cards.length; i++) {
+		let cardElement = document.createElement('img');
+		cardElement.setAttribute('src', 'images/back.png');
+		cardElement.setAttribute('data-id', i);
+		cardElement.addEventListener('click', flipCard);
+		document.getElementById('game-board').appendChild(cardElement);
+	}
+}
+
+//Reset
+function reset() {
+	let deleteElement = document.getElementById('game-board');
+	for (let i = 0; i < cards.length; i++) {
+		deleteElement.removeChild(deleteElement.lastChild);
+	}
+	while (cardsInPlay.length > 0) {
+		cardsInPlay.pop();
+	}
+	createBoard();
+}
+
+document.querySelector('button').addEventListener('click', reset);
+
+//Main Function
+createBoard();
